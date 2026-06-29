@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monika Chebrolu — Python Developer & AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0D1B2A; --navy2:#132233; --teal:#00C9B1; --teal2:#00a896;
+      --amber:#E8A838; --slate:#4A6274; --light:#F0EDE6; --white:#ffffff;
+      --card:#111f2e; --border:rgba(0,201,177,0.15);
+    }
+    html { scroll-behavior: smooth; }
+    body { background:var(--navy); color:var(--light); font-family:'Inter',sans-serif; font-size:16px; line-height:1.7; overflow-x:hidden; }
+
+    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:1.1rem 5vw; background:rgba(13,27,42,0.93); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--teal); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { color:var(--light); text-decoration:none; font-size:0.85rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; opacity:0.75; transition:opacity 0.2s,color 0.2s; }
+    .nav-links a:hover { opacity:1; color:var(--teal); }
+
+    #hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:120px 5vw 80px; gap:4rem; position:relative; overflow:hidden; }
+    .hero-bg-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(0,201,177,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,201,177,0.04) 1px,transparent 1px); background-size:60px 60px; pointer-events:none; }
+    .hero-glow { position:absolute; right:-120px; top:50%; transform:translateY(-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(0,201,177,0.12) 0%,transparent 70%); pointer-events:none; }
+    .hero-left { position:relative; z-index:1; }
+    .hero-eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--teal); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1.2rem; }
+    .hero-name { font-family:'Playfair Display',serif; font-size:clamp(2.8rem,5vw,4.5rem); font-weight:900; line-height:1.05; color:var(--white); margin-bottom:1.2rem; }
+    .hero-name span { color:var(--teal); }
+    .typewriter-wrap { font-family:'JetBrains Mono',monospace; font-size:1rem; color:var(--amber); margin-bottom:1.8rem; min-height:1.6rem; }
+    .cursor { display:inline-block; width:2px; height:1.1em; background:var(--amber); margin-left:2px; vertical-align:middle; animation:blink 0.9s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .hero-summary { color:rgba(240,237,230,0.72); font-size:0.97rem; max-width:480px; margin-bottom:2.2rem; line-height:1.8; }
+    .hero-cta { display:flex; gap:1rem; flex-wrap:wrap; }
+    .btn { display:inline-block; padding:0.75rem 1.8rem; border-radius:4px; font-size:0.85rem; font-weight:600; letter-spacing:0.06em; text-decoration:none; cursor:pointer; transition:transform 0.18s,box-shadow 0.18s; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-primary { background:var(--teal); color:var(--navy); box-shadow:0 4px 20px rgba(0,201,177,0.3); }
+    .btn-primary:hover { box-shadow:0 6px 28px rgba(0,201,177,0.45); }
+    .btn-outline { border:1.5px solid var(--teal); color:var(--teal); background:transparent; }
+    .btn-outline:hover { background:rgba(0,201,177,0.08); }
+    .hero-right { position:relative; z-index:1; display:flex; flex-direction:column; gap:1rem; }
+    .hero-stat-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.1rem 1.4rem; display:flex; align-items:center; gap:1rem; }
+    .stat-icon { font-size:1.5rem; width:44px; height:44px; background:rgba(0,201,177,0.12); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .stat-label { font-size:0.75rem; color:var(--slate); text-transform:uppercase; letter-spacing:0.08em; }
+    .stat-value { font-size:1rem; font-weight:600; color:var(--white); }
+
+    section { padding:90px 5vw; }
+    .section-tag { font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--teal); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.6rem; }
+    .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.6rem); font-weight:700; color:var(--white); margin-bottom:3rem; }
+    .section-title span { color:var(--teal); }
+    .divider { width:48px; height:3px; background:var(--teal); margin-bottom:3rem; border-radius:2px; }
+
+    #skills { background:var(--navy2); }
+    .skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+    .skill-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1.5rem; transition:border-color 0.2s,transform 0.2s; }
+    .skill-card:hover { border-color:var(--teal); transform:translateY(-3px); }
+    .skill-card-title { font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--amber); margin-bottom:1rem; }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .tag { font-family:'JetBrains Mono',monospace; font-size:0.75rem; background:rgba(0,201,177,0.1); color:var(--teal); border:1px solid rgba(0,201,177,0.2); padding:0.25rem 0.65rem; border-radius:3px; }
+    .tag.new { background:rgba(232,168,56,0.1); color:var(--amber); border-color:rgba(232,168,56,0.25); }
+
+    .timeline { display:flex; flex-direction:column; gap:0; position:relative; }
+    .timeline::before { content:''; position:absolute; left:18px; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--teal),transparent); }
+    .timeline-item { display:grid; grid-template-columns:48px 1fr; gap:1.5rem; padding-bottom:2.5rem; }
+    .tl-dot { width:36px; height:36px; background:var(--card); border:2px solid var(--teal); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0; margin-top:4px; position:relative; z-index:1; }
+    .tl-body { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1.4rem 1.6rem; transition:border-color 0.2s; }
+    .tl-body:hover { border-color:var(--teal); }
+    .tl-header { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; flex-wrap:wrap; margin-bottom:0.5rem; }
+    .tl-role { font-weight:600; font-size:1rem; color:var(--white); }
+    .tl-company { color:var(--teal); font-size:0.88rem; font-weight:500; }
+    .tl-date { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--slate); background:rgba(74,98,116,0.2); padding:0.25rem 0.6rem; border-radius:3px; white-space:nowrap; }
+    .tl-bullets { list-style:none; margin-top:0.8rem; }
+    .tl-bullets li { color:rgba(240,237,230,0.7); font-size:0.88rem; padding-left:1.1rem; position:relative; margin-bottom:0.4rem; }
+    .tl-bullets li::before { content:'▸'; position:absolute; left:0; color:var(--teal); font-size:0.7rem; top:3px; }
+
+    #projects { background:var(--navy2); }
+    .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem; }
+    .project-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1.8rem; display:flex; flex-direction:column; transition:border-color 0.2s,transform 0.2s; }
+    .project-card:hover { border-color:var(--teal); transform:translateY(-4px); }
+    .project-card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem; }
+    .project-icon { font-size:1.6rem; }
+    .project-links { display:flex; gap:0.6rem; }
+    .project-link { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--teal); text-decoration:none; border:1px solid rgba(0,201,177,0.3); padding:0.2rem 0.55rem; border-radius:3px; transition:background 0.18s; }
+    .project-link:hover { background:rgba(0,201,177,0.12); }
+    .project-name { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--white); margin-bottom:0.6rem; }
+    .project-desc { font-size:0.88rem; color:rgba(240,237,230,0.68); line-height:1.7; flex:1; margin-bottom:1.2rem; }
+    .project-stack { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .stack-tag { font-family:'JetBrains Mono',monospace; font-size:0.7rem; background:rgba(232,168,56,0.08); color:var(--amber); border:1px solid rgba(232,168,56,0.2); padding:0.2rem 0.55rem; border-radius:3px; }
+
+    .edu-card { background:var(--card); border:1px solid var(--teal); border-radius:10px; padding:2rem 2.4rem; max-width:700px; position:relative; overflow:hidden; }
+    .edu-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:linear-gradient(to bottom,var(--teal),var(--amber)); }
+    .edu-badge { display:inline-block; background:rgba(0,201,177,0.12); color:var(--teal); font-size:0.72rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; padding:0.25rem 0.7rem; border-radius:3px; margin-bottom:0.8rem; }
+    .edu-degree { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; color:var(--white); margin-bottom:0.4rem; }
+    .edu-inst { color:var(--teal); font-size:0.9rem; font-weight:500; margin-bottom:0.3rem; }
+    .edu-meta { font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--slate); margin-bottom:1rem; }
+    .edu-note { font-size:0.88rem; color:rgba(240,237,230,0.7); }
+
+    #learning { background:var(--navy2); }
+    .learning-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; }
+    .learning-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1.2rem 1.4rem; transition:border-color 0.2s; }
+    .learning-card:hover { border-color:var(--amber); }
+    .learning-icon { font-size:1.4rem; margin-bottom:0.5rem; }
+    .learning-name { font-size:0.88rem; font-weight:600; color:var(--white); margin-bottom:0.2rem; }
+    .learning-desc { font-size:0.78rem; color:var(--slate); }
+    .learning-status { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.65rem; background:rgba(232,168,56,0.12); color:var(--amber); padding:0.15rem 0.45rem; border-radius:2px; margin-top:0.5rem; }
+
+    #contact { text-align:center; }
+    .contact-links { display:flex; justify-content:center; gap:1.2rem; flex-wrap:wrap; margin-top:2rem; }
+    .contact-link { display:flex; align-items:center; gap:0.5rem; text-decoration:none; color:var(--light); background:var(--card); border:1px solid var(--border); border-radius:6px; padding:0.75rem 1.4rem; font-size:0.88rem; font-weight:500; transition:border-color 0.2s,transform 0.18s; }
+    .contact-link:hover { border-color:var(--teal); color:var(--teal); transform:translateY(-2px); }
+
+    footer { text-align:center; padding:2rem; border-top:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--slate); }
+    footer span { color:var(--teal); }
+
+    @media(max-width:768px) {
+      #hero { grid-template-columns:1fr; padding-top:100px; }
+      .hero-right { display:none; }
+      .nav-links { display:none; }
+    }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.55s ease,transform 0.55s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">MC/</div>
+  <ul class="nav-links">
+    <li><a onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Skills</a></li>
+    <li><a onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Experience</a></li>
+    <li><a onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Projects</a></li>
+    <li><a onclick="document.getElementById('education').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Education</a></li>
+    <li><a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">// Available for opportunities</p>
+    <h1 class="hero-name">Monika<br><span>Chebrolu</span></h1>
+    <div class="typewriter-wrap"><span id="typewriter"></span><span class="cursor"></span></div>
+    <p class="hero-summary">Versatile technology professional with <strong style="color:var(--white)">6+ years</strong> of experience across Backend Development, QA Engineering, and AI Integration. Expert in building scalable RESTful APIs with FastAPI, managing PostgreSQL databases, and integrating AI/ML models into production systems.</p>
+    <div class="hero-cta">
+      <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="btn btn-primary">View Projects</button>
+      <a href="https://github.com/monika-axiorag/" target="_blank" class="btn btn-outline">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/monika-chebrolu-539a123aa/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-card"><div class="stat-icon">⚡</div><div><div class="stat-label">Experience</div><div class="stat-value">6+ Years across 4 Companies</div></div></div>
+    <div class="hero-stat-card"><div class="stat-icon">🤖</div><div><div class="stat-label">Current Focus</div><div class="stat-value">AI/ML Integration & FastAPI</div></div></div>
+    <div class="hero-stat-card"><div class="stat-icon">🏛️</div><div><div class="stat-label">Studying At</div><div class="stat-value">IIT Patna × Masai School</div></div></div>
+    <div class="hero-stat-card"><div class="stat-icon">📍</div><div><div class="stat-label">Location</div><div class="stat-value">Hyderabad, India</div></div></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="reveal">
+    <p class="section-tag">// Technical Arsenal</p>
+    <h2 class="section-title">Skills & <span>Technologies</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal"><div class="skill-card-title">Languages</div><div class="skill-tags"><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div></div>
+    <div class="skill-card reveal"><div class="skill-card-title">Frameworks & Libraries</div><div class="skill-tags"><span class="tag">FastAPI</span><span class="tag">Pydantic</span><span class="tag">React.js</span><span class="tag">SQLAlchemy</span><span class="tag new">Celery / RQ</span><span class="tag new">Polars</span></div></div>
+    <div class="skill-card reveal"><div class="skill-card-title">Databases & Storage</div><div class="skill-tags"><span class="tag">PostgreSQL</span><span class="tag new">Vector DB</span><span class="tag new">RAG Backends</span></div></div>
+    <div class="skill-card reveal"><div class="skill-card-title">AI / ML</div><div class="skill-tags"><span class="tag">Whisper AI</span><span class="tag">Audio Preprocessing</span><span class="tag new">ML API Integration</span><span class="tag new">LLM APIs</span></div></div>
+    <div class="skill-card reveal"><div class="skill-card-title">DevOps & Tools</div><div class="skill-tags"><span class="tag">Docker</span><span class="tag">Git / GitHub</span><span class="tag">Postman</span><span class="tag new">uv / Poetry</span><span class="tag new">Ruff / mypy</span><span class="tag new">Cloud / Serverless</span></div></div>
+    <div class="skill-card reveal"><div class="skill-card-title">Engineering Practices</div><div class="skill-tags"><span class="tag">REST API Design</span><span class="tag">JWT / OAuth 2.0</span><span class="tag">Agile / Scrum</span><span class="tag">RBAC</span><span class="tag new">async/await</span><span class="tag new">Concurrency</span></div></div>
+  </div>
+  <p style="margin-top:1.2rem;font-size:0.75rem;font-family:'JetBrains Mono',monospace;color:var(--amber);opacity:0.8;">★ <span style="background:rgba(232,168,56,0.1);padding:0.1rem 0.4rem;border-radius:2px;">amber tags</span> = actively learning / upskilling per team roadmap</p>
+</section>
+
+<section id="experience">
+  <div class="reveal">
+    <p class="section-tag">// Career Path</p>
+    <h2 class="section-title">Professional <span>Experience</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="tl-dot">🚀</div>
+      <div class="tl-body">
+        <div class="tl-header"><div><div class="tl-role">Python Developer</div><div class="tl-company">Axiora Pulse</div></div><span class="tl-date">2024 – Present</span></div>
+        <ul class="tl-bullets">
+          <li>Designed and deployed scalable RESTful backend APIs using FastAPI powering core AI survey platform features</li>
+          <li>Implemented secure authentication flows using JWT and Google OAuth 2.0 for identity management</li>
+          <li>Integrated Whisper AI for multilingual speech-to-text; enhanced accuracy via custom audio preprocessing pipelines</li>
+          <li>Managed complex relational data models with PostgreSQL + SQLAlchemy ORM ensuring data integrity and performance</li>
+          <li>Led cross-functional squads (QA, DevOps, frontend) with sprint planning and stakeholder reporting</li>
+          <li>Containerized services using Docker; enforced code quality through Git branching workflows</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="tl-dot">🧪</div>
+      <div class="tl-body">
+        <div class="tl-header"><div><div class="tl-role">Associate – QA Engineer</div><div class="tl-company">TekFriday Processing Solutions Pvt. Ltd.</div></div><span class="tl-date">Jul 2022 – Aug 2023</span></div>
+        <ul class="tl-bullets">
+          <li>Executed comprehensive functional, regression, and integration testing across web-based IT applications</li>
+          <li>Identified and tracked software defects using structured bug-reporting; collaborated for timely resolution</li>
+          <li>Contributed to QA process improvements reducing defect leakage and improving release confidence</li>
+          <li>Worked in Agile environment to define acceptance criteria and validate deliverables</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="tl-dot">🌐</div>
+      <div class="tl-body">
+        <div class="tl-header"><div><div class="tl-role">Associate Analyst – Content Engineering</div><div class="tl-company">GlobalLogic Technology Pvt. Ltd. (Hitachi Group)</div></div><span class="tl-date">Apr 2022 – Jul 2022</span></div>
+        <ul class="tl-bullets">
+          <li>Worked on enterprise-scale content and data workflows in a Hitachi Group company</li>
+          <li>Collaborated with cross-functional global teams on content processing pipelines with strict IT security compliance</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="tl-dot">🏢</div>
+      <div class="tl-body">
+        <div class="tl-header"><div><div class="tl-role">Senior Associate</div><div class="tl-company">Wipro Limited</div></div><span class="tl-date">Feb 2020 – Apr 2021</span></div>
+        <ul class="tl-bullets">
+          <li>Contributed to technology service delivery and team operations at one of India's leading IT firms</li>
+          <li>Maintained high accuracy and quality standards across client deliverables</li>
+          <li>Developed foundational expertise in enterprise IT environments and stakeholder communication</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="reveal">
+    <p class="section-tag">// What I've Built</p>
+    <h2 class="section-title">Key <span>Projects</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-card-top"><div class="project-icon">🎙️</div><div class="project-links"><span class="project-link">Featured</span></div></div>
+      <div class="project-name">Axiora Pulse — AI Survey Platform</div>
+      <div class="project-desc">End-to-end AI survey platform with voice-to-text input, multilingual support, dynamic survey generation, analytics dashboard, and JWT-secured authentication. Architected backend microservices with FastAPI and integrated Whisper AI transcription.</div>
+      <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Whisper AI</span><span class="stack-tag">Docker</span></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top"><div class="project-icon">🛒</div><div class="project-links"><a href="https://github.com/monika-axiorag/Ecommerce_payment_app" target="_blank" class="project-link">GitHub ↗</a></div></div>
+      <div class="project-name">E-Commerce Payment Application</div>
+      <div class="project-desc">Full-stack e-commerce backend and frontend covering authentication, cart management, order processing, and payment workflows. Built with a clean API-first architecture.</div>
+      <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Payment APIs</span></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top"><div class="project-icon">✅</div><div class="project-links"><a href="https://github.com/monika-axiorag/todocliapp" target="_blank" class="project-link">GitHub ↗</a></div></div>
+      <div class="project-name">ToDo Management System</div>
+      <div class="project-desc">Full-featured task management REST API with JWT auth, user statistics endpoints, and role-based access control (RBAC). Clean architecture demonstrating backend best practices.</div>
+      <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">JWT</span><span class="stack-tag">RBAC</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="reveal">
+    <p class="section-tag">// Academic Foundation</p>
+    <h2 class="section-title">Education & <span>Certifications</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="edu-card reveal">
+    <span class="edu-badge">🎓 Currently Enrolled — Pioneer Batch</span>
+    <div class="edu-degree">Artificial Intelligence & Machine Learning</div>
+    <div class="edu-inst">Vishlesan i-Hub, IIT Patna × Masai School</div>
+    <div class="edu-meta">Mar 2026 – Present &nbsp;|&nbsp; Student ID: IITP_AIMLT_2603738</div>
+    <div class="edu-note">Pioneer batch of the AI & ML program (delivered in Telugu) — bridging academic excellence from IIT Patna with industry-ready ML skills through Masai School's practical curriculum.</div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="reveal">
+    <p class="section-tag">// Currently Upskilling</p>
+    <h2 class="section-title">What I'm <span>Learning</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="learning-grid">
+    <div class="learning-card reveal"><div class="learning-icon">⚡</div><div class="learning-name">async/await & Concurrency</div><div class="learning-desc">Multiprocessing, free-threaded Python 3.14 awareness</div><span class="learning-status">In Progress</span></div>
+    <div class="learning-card reveal"><div class="learning-icon">📦</div><div class="learning-name">uv / Poetry Packaging</div><div class="learning-desc">Modern Python dependency management and project tooling</div><span class="learning-status">In Progress</span></div>
+    <div class="learning-card reveal"><div class="learning-icon">🔍</div><div class="learning-name">Ruff & mypy</div><div class="learning-desc">Fast linting, type checking, and code quality enforcement</div><span class="learning-status">In Progress</span></div>
+    <div class="learning-card reveal"><div class="learning-icon">🧮</div><div class="learning-name">Polars</div><div class="learning-desc">High-performance data engineering and DataFrame library</div><span class="learning-status">In Progress</span></div>
+    <div class="learning-card reveal"><div class="learning-icon">🧠</div><div class="learning-name">RAG & Vector Databases</div><div class="learning-desc">LLM retrieval-augmented generation and vector DB integration</div><span class="learning-status">In Progress</span></div>
+    <div class="learning-card reveal"><div class="learning-icon">☁️</div><div class="learning-name">Cloud / Serverless</div><div class="learning-desc">Cloud deployment, serverless functions, data engineering basics</div><span class="learning-status">In Progress</span></div>
+    <div class="learning-card reveal"><div class="learning-icon">⚙️</div><div class="learning-name">Celery / RQ</div><div class="learning-desc">Background task queues and distributed job processing</div><span class="learning-status">In Progress</span></div>
+    <div class="learning-card reveal"><div class="learning-icon">🤖</div><div class="learning-name">ML / AI API Integration</div><div class="learning-desc">Deep ML via IIT Patna — model deployment and API wrapping</div><span class="learning-status">IIT Patna</span></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="reveal">
+    <p class="section-tag">// Get In Touch</p>
+    <h2 class="section-title">Let's <span>Connect</span></h2>
+    <div class="divider" style="margin:0 auto 2rem;"></div>
+    <p style="color:rgba(240,237,230,0.65);max-width:500px;margin:0 auto;font-size:0.95rem;">I'm open to new opportunities in backend development, AI engineering, and Python-focused roles. Feel free to reach out!</p>
+  </div>
+  <div class="contact-links reveal">
+    <a href="mailto:monikachebrolu1@gmail.com" class="contact-link"><span>✉️</span> monikachebrolu1@gmail.com</a>
+    <a href="https://github.com/monika-axiorag/" target="_blank" class="contact-link"><span>🐙</span> GitHub</a>
+    <a href="https://www.linkedin.com/in/monika-chebrolu-539a123aa/" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
+    <a class="contact-link"><span>📍</span> Hyderabad, India</a>
+  </div>
+</section>
+
+<footer>Built with ♥ by <span>Monika Chebrolu</span> &nbsp;·&nbsp; Python Developer & AI Engineer &nbsp;·&nbsp; 2025</footer>
+
+<script>
+  const roles = ['Python Developer','Backend Engineer','QA & AI Specialist','FastAPI Expert','AI/ML Enthusiast'];
+  let roleIdx=0,charIdx=0,deleting=false;
+  const el=document.getElementById('typewriter');
+  function type(){
+    const cur=roles[roleIdx];
+    if(!deleting){el.textContent=cur.slice(0,++charIdx);if(charIdx===cur.length){deleting=true;setTimeout(type,1800);return;}}
+    else{el.textContent=cur.slice(0,--charIdx);if(charIdx===0){deleting=false;roleIdx=(roleIdx+1)%roles.length;}}
+    setTimeout(type,deleting?55:90);
+  }
+  type();
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
