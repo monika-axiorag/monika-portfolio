@@ -88,6 +88,14 @@
     .project-desc { font-size:0.88rem; color:rgba(240,237,230,0.68); line-height:1.7; flex:1; margin-bottom:1.2rem; }
     .project-stack { display:flex; flex-wrap:wrap; gap:0.4rem; }
     .stack-tag { font-family:'JetBrains Mono',monospace; font-size:0.7rem; background:rgba(232,168,56,0.08); color:var(--amber); border:1px solid rgba(232,168,56,0.2); padding:0.2rem 0.55rem; border-radius:3px; }
+    .project-card.featured-wide { grid-column: 1 / -1; }
+    .project-resp-list, .project-achieve-list { list-style:none; margin-bottom:1rem; }
+    .project-resp-list li, .project-achieve-list li { color:rgba(240,237,230,0.7); font-size:0.85rem; padding-left:1.1rem; position:relative; margin-bottom:0.4rem; line-height:1.6; }
+    .project-resp-list li::before { content:'▸'; position:absolute; left:0; color:var(--teal); font-size:0.7rem; top:3px; }
+    .project-achieve-list li::before { content:'★'; position:absolute; left:0; color:var(--amber); font-size:0.65rem; top:3px; }
+    .project-subhead { font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--amber); margin:1rem 0 0.6rem; }
+    .project-two-col { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+    @media(max-width:768px) { .project-two-col { grid-template-columns:1fr; } }
 
     .edu-card { background:var(--card); border:1px solid var(--teal); border-radius:10px; padding:2rem 2.4rem; max-width:700px; position:relative; overflow:hidden; }
     .edu-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:linear-gradient(to bottom,var(--teal),var(--amber)); }
@@ -171,6 +179,7 @@
     <div class="skill-card reveal"><div class="skill-card-title">AI / ML</div><div class="skill-tags"><span class="tag">Whisper AI</span><span class="tag">Audio Preprocessing</span><span class="tag new">ML API Integration</span><span class="tag new">LLM APIs</span></div></div>
     <div class="skill-card reveal"><div class="skill-card-title">DevOps & Tools</div><div class="skill-tags"><span class="tag">Docker</span><span class="tag">Git / GitHub</span><span class="tag">Postman</span><span class="tag new">uv / Poetry</span><span class="tag new">Ruff / mypy</span><span class="tag new">Cloud / Serverless</span></div></div>
     <div class="skill-card reveal"><div class="skill-card-title">Engineering Practices</div><div class="skill-tags"><span class="tag">REST API Design</span><span class="tag">JWT / OAuth 2.0</span><span class="tag">Agile / Scrum</span><span class="tag">RBAC</span><span class="tag new">async/await</span><span class="tag new">Concurrency</span></div></div>
+    <div class="skill-card reveal"><div class="skill-card-title">Additional / Early-Career Stack</div><div class="skill-tags"><span class="tag">Java</span><span class="tag">J2EE</span><span class="tag">Android</span><span class="tag">MySQL</span><span class="tag">Salesforce Admin</span><span class="tag">Salesforce Developer</span><span class="tag">Apex Classes</span><span class="tag">Data Mining</span><span class="tag">Software Testing Tools</span></div></div>
   </div>
   <p style="margin-top:1.2rem;font-size:0.75rem;font-family:'JetBrains Mono',monospace;color:var(--amber);opacity:0.8;">★ <span style="background:rgba(232,168,56,0.1);padding:0.1rem 0.4rem;border-radius:2px;">amber tags</span> = actively learning / upskilling per team roadmap</p>
 </section>
@@ -215,15 +224,26 @@
         <ul class="tl-bullets">
           <li>Worked on enterprise-scale content and data workflows in a Hitachi Group company</li>
           <li>Collaborated with cross-functional global teams on content processing pipelines with strict IT security compliance</li>
+          <li>6 months of hands-on experience in Google Mapping data operations within the Global Login program</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="tl-dot">📊</div>
+      <div class="tl-body">
+        <div class="tl-header"><div><div class="tl-role">Business Analyst (Project-Based)</div><div class="tl-company">Flex Salary</div></div><span class="tl-date">2018 – 2019 (1+ Yr)</span></div>
+        <ul class="tl-bullets">
+          <li>1+ years of experience in business analysis, working on real-world projects</li>
+          <li>Gathered requirements and supported data-driven decision-making for business processes</li>
         </ul>
       </div>
     </div>
     <div class="timeline-item reveal">
       <div class="tl-dot">🏢</div>
       <div class="tl-body">
-        <div class="tl-header"><div><div class="tl-role">Senior Associate</div><div class="tl-company">Wipro Limited</div></div><span class="tl-date">Feb 2020 – Apr 2021</span></div>
+        <div class="tl-header"><div><div class="tl-role">Senior Associate</div><div class="tl-company">Wipro Limited</div></div><span class="tl-date">Feb 2020 – Mar 2022</span></div>
         <ul class="tl-bullets">
-          <li>Contributed to technology service delivery and team operations at one of India's leading IT firms</li>
+          <li>2+ years of experience as Senior Associate handling shopping spam moderation (Non-Voice Process) at one of India's leading IT firms</li>
           <li>Maintained high accuracy and quality standards across client deliverables</li>
           <li>Developed foundational expertise in enterprise IT environments and stakeholder communication</li>
         </ul>
@@ -245,8 +265,112 @@
       <div class="project-desc">End-to-end AI survey platform with voice-to-text input, multilingual support, dynamic survey generation, analytics dashboard, and JWT-secured authentication. Architected backend microservices with FastAPI and integrated Whisper AI transcription.</div>
       <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Whisper AI</span><span class="stack-tag">Docker</span></div>
     </div>
+
+    <div class="project-card featured-wide reveal">
+      <div class="project-card-top"><div class="project-icon">⚙️</div><div class="project-links"><span class="project-link">Featured</span></div></div>
+      <div class="project-name">Axiora Prism (Nexora Prism) — AI Workflow Automation Platform</div>
+      <div class="project-desc">
+        Enterprise platform automating business workflows, employee notifications, follow-ups, reminders, and
+        AI-driven operational processes. Built scalable automation pipelines, integrated AI services, managed
+        background jobs, monitored system performance, and improved workflow reliability — giving organizations
+        intelligent decision support and full operational visibility.
+      </div>
+
+      <div class="project-two-col">
+        <div>
+          <div class="project-subhead">Roles & Responsibilities</div>
+          <ul class="project-resp-list">
+            <li>Developed workflow automation using Python, FastAPI, Celery, and event-driven architecture</li>
+            <li>Built automation pipelines for employee alerts, follow-ups, reminders, lead management, and business workflows</li>
+            <li>Integrated REST APIs and third-party AI services into automation workflows</li>
+            <li>Managed asynchronous background jobs using Celery and queue-based processing</li>
+            <li>Monitored AI services, pipelines, queues, workers, logs, and scheduled jobs</li>
+            <li>Optimized AI response time via context reduction, caching, queue processing, and timeout handling</li>
+            <li>Improved RAG accuracy through chunk optimization, metadata filtering, embedding tuning, and reranking</li>
+            <li>Implemented retry policies, idempotency, and reliability monitoring for background jobs</li>
+            <li>Maintained data pipelines with schema validation, freshness checks, and pipeline alerting</li>
+            <li>Validated business rules for accurate reminders and notification delivery</li>
+            <li>Improved AI prompt quality through tuning, evaluation testing, and version control</li>
+            <li>Enhanced OCR and document-processing workflows with confidence scoring and fallback mechanisms</li>
+            <li>Managed external API integrations, handling provider schema changes with backward-compatible updates</li>
+            <li>Optimized AI token usage and infra costs through batching, context optimization, and budget monitoring</li>
+            <li>Implemented structured logging, correlation IDs, audit trails, and observability for automation services</li>
+            <li>Worked in Agile development — code reviews, debugging, testing, and production issue resolution</li>
+          </ul>
+        </div>
+        <div>
+          <div class="project-subhead">Key Achievements</div>
+          <ul class="project-achieve-list">
+            <li>Automated business workflows for reminders, follow-ups, employee notifications, and lead management</li>
+            <li>Improved automation reliability through queue monitoring, retry mechanisms, and failure recovery</li>
+            <li>Optimized AI workflow performance by reducing latency and improving retrieval accuracy</li>
+            <li>Enhanced system observability using structured logging and monitoring</li>
+            <li>Supported scalable enterprise automation by integrating AI services with workflow orchestration</li>
+            <li>Reduced manual effort by implementing intelligent business automation and background processing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span><span class="stack-tag">Celery</span>
+        <span class="stack-tag">REST APIs</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Redis</span>
+        <span class="stack-tag">Workflow Automation</span><span class="stack-tag">Event-Driven Architecture</span>
+        <span class="stack-tag">RAG</span><span class="stack-tag">AI Integration</span><span class="stack-tag">OCR</span>
+        <span class="stack-tag">Docker</span><span class="stack-tag">Git</span><span class="stack-tag">Queue Management</span>
+        <span class="stack-tag">Logging & Monitoring</span>
+      </div>
+    </div>
+
+    <div class="project-card featured-wide reveal">
+      <div class="project-card-top"><div class="project-icon">🧩</div><div class="project-links"><span class="project-link">Featured</span></div></div>
+      <div class="project-name">ORBIT_RULES_WORKER — Workflow Automation Engine</div>
+      <div class="project-desc">
+        Backend automation engine processing CRM events using a rules-first architecture. The system evaluates
+        configurable business rules before executing automated actions, ensuring deterministic workflow execution
+        with comprehensive audit logging and multi-tenant support.
+      </div>
+
+      <div class="project-two-col">
+        <div>
+          <div class="project-subhead">Key Responsibilities & Features</div>
+          <ul class="project-resp-list">
+            <li>Designed REST APIs for managing automation rules and CRM events</li>
+            <li>Built a rules engine to evaluate business conditions before triggering actions</li>
+            <li>Implemented multi-tenant architecture using tenant_id isolation</li>
+            <li>Added idempotency support to prevent duplicate event processing</li>
+            <li>Integrated PostgreSQL for persistent storage of rules, events, and audit logs</li>
+            <li>Implemented asynchronous background processing using Celery and Redis</li>
+            <li>Created scheduled automation jobs for delayed and recurring workflows</li>
+            <li>Containerized the application using Docker and Docker Compose</li>
+            <li>Developed unit and integration tests using Pytest</li>
+            <li>Implemented structured logging and error handling for reliable event processing</li>
+          </ul>
+        </div>
+        <div>
+          <div class="project-subhead">Skills Demonstrated</div>
+          <ul class="project-achieve-list">
+            <li>FastAPI development & REST API design</li>
+            <li>Event-driven architecture & workflow automation</li>
+            <li>Business rules engine design</li>
+            <li>Celery & background job orchestration</li>
+            <li>PostgreSQL & SQLAlchemy ORM</li>
+            <li>Docker & Docker Compose containerization</li>
+            <li>Multi-tenant architecture & audit logging</li>
+            <li>Idempotency & async programming patterns</li>
+            <li>Test coverage with Pytest</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-stack">
+        <span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span><span class="stack-tag">PostgreSQL</span>
+        <span class="stack-tag">SQLAlchemy</span><span class="stack-tag">Celery</span><span class="stack-tag">Redis</span>
+        <span class="stack-tag">Docker</span><span class="stack-tag">Pytest</span><span class="stack-tag">REST APIs</span>
+      </div>
+    </div>
+
     <div class="project-card reveal">
-      <div class="project-card-top"><div class="project-icon">🛒</div><div class="project-links"><a href="https://github.com/monika-axiorag/Ecommerce_payment_app" target="_blank" class="project-link">GitHub ↗</a></div></div>
+      <div class="project-card-top"><div class="project-icon">🛒</div><div class="project-links"><a href="https://ecommerce-payment-app-0eb9.onrender.com/" target="_blank" class="project-link">Live Demo ↗</a><a href="https://github.com/monika-axiorag/Ecommerce_payment_app" target="_blank" class="project-link">GitHub ↗</a></div></div>
       <div class="project-name">E-Commerce Payment Application</div>
       <div class="project-desc">Full-stack e-commerce backend and frontend covering authentication, cart management, order processing, and payment workflows. Built with a clean API-first architecture.</div>
       <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">React.js</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Payment APIs</span></div>
@@ -256,6 +380,24 @@
       <div class="project-name">ToDo Management System</div>
       <div class="project-desc">Full-featured task management REST API with JWT auth, user statistics endpoints, and role-based access control (RBAC). Clean architecture demonstrating backend best practices.</div>
       <div class="project-stack"><span class="stack-tag">FastAPI</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">JWT</span><span class="stack-tag">RBAC</span></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top"><div class="project-icon">📰</div><div class="project-links"><span class="project-link">Academic</span></div></div>
+      <div class="project-name">Personalizing Social Media News Feeds</div>
+      <div class="project-desc">Improved user engagement by recommending news articles based on preferences and activity. Classified public daily events from media sources, deployed SociRank for topic classification, and configured Apache Tomcat for the web layer.</div>
+      <div class="project-stack"><span class="stack-tag">J2EE</span><span class="stack-tag">MySQL</span><span class="stack-tag">Java (Core)</span><span class="stack-tag">Apache Tomcat</span></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top"><div class="project-icon">📍</div><div class="project-links"><span class="project-link">Team Lead</span></div></div>
+      <div class="project-name">City Escorts — Android Application</div>
+      <div class="project-desc">Led a team of 2 to build an app helping users discover activities and offers around their current location. Used geo-location and data-call technologies, with GPS-based route mapping to destinations.</div>
+      <div class="project-stack"><span class="stack-tag">Java</span><span class="stack-tag">SQLite</span><span class="stack-tag">Android SDK</span><span class="stack-tag">GPS</span></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top"><div class="project-icon">🐞</div><div class="project-links"><span class="project-link">Team Lead</span></div></div>
+      <div class="project-name">Bug Reporting System</div>
+      <div class="project-desc">Led a group of 3 to develop a system enabling software teams to file new bugs, track their status, and close them — built on enterprise Java web technologies.</div>
+      <div class="project-stack"><span class="stack-tag">Java</span><span class="stack-tag">JDBC</span><span class="stack-tag">JNDI</span><span class="stack-tag">Servlets</span><span class="stack-tag">JSP</span></div>
     </div>
   </div>
 </section>
@@ -272,6 +414,43 @@
     <div class="edu-inst">Vishlesan i-Hub, IIT Patna × Masai School</div>
     <div class="edu-meta">Mar 2026 – Present &nbsp;|&nbsp; Student ID: IITP_AIMLT_2603738</div>
     <div class="edu-note">Pioneer batch of the AI & ML program (delivered in Telugu) — bridging academic excellence from IIT Patna with industry-ready ML skills through Masai School's practical curriculum.</div>
+  </div>
+
+  <div class="reveal" style="margin-top:2.5rem;max-width:700px;">
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:1rem;">Academic Qualifications</h3>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+        <thead>
+          <tr style="background:rgba(0,201,177,0.08);">
+            <th style="text-align:left;padding:0.8rem 1.2rem;color:var(--teal);font-weight:600;letter-spacing:0.05em;">Qualification</th>
+            <th style="text-align:left;padding:0.8rem 1.2rem;color:var(--teal);font-weight:600;letter-spacing:0.05em;">Institute</th>
+            <th style="text-align:left;padding:0.8rem 1.2rem;color:var(--teal);font-weight:600;letter-spacing:0.05em;">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:0.8rem 1.2rem;color:var(--white);">M.Tech</td>
+            <td style="padding:0.8rem 1.2rem;color:rgba(240,237,230,0.75);">Bharath Engineering College</td>
+            <td style="padding:0.8rem 1.2rem;color:var(--slate);font-family:'JetBrains Mono',monospace;">2017 – 2019</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:0.8rem 1.2rem;color:var(--white);">B.Tech</td>
+            <td style="padding:0.8rem 1.2rem;color:rgba(240,237,230,0.75);">Sphoorthy Engineering College</td>
+            <td style="padding:0.8rem 1.2rem;color:var(--slate);font-family:'JetBrains Mono',monospace;">2012 – 2016</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:0.8rem 1.2rem;color:var(--white);">Intermediate</td>
+            <td style="padding:0.8rem 1.2rem;color:rgba(240,237,230,0.75);">Narayana Intermediate College</td>
+            <td style="padding:0.8rem 1.2rem;color:var(--slate);font-family:'JetBrains Mono',monospace;">2010 – 2012</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:0.8rem 1.2rem;color:var(--white);">S.S.C</td>
+            <td style="padding:0.8rem 1.2rem;color:rgba(240,237,230,0.75);">Poornodaya Model School</td>
+            <td style="padding:0.8rem 1.2rem;color:var(--slate);font-family:'JetBrains Mono',monospace;">2009 – 2010</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -305,6 +484,7 @@
     <a href="https://github.com/monika-axiorag/" target="_blank" class="contact-link"><span>🐙</span> GitHub</a>
     <a href="https://www.linkedin.com/in/monika-chebrolu-539a123aa/" target="_blank" class="contact-link"><span>💼</span> LinkedIn</a>
     <a class="contact-link"><span>📍</span> Hyderabad, India</a>
+    <a class="contact-link"><span>🗣️</span> Telugu · English · Hindi</a>
   </div>
 </section>
 
